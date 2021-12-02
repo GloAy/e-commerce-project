@@ -10,21 +10,29 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       size: {
         type: Sequelize.STRING,
       },
       price: {
         type: Sequelize.DECIMAL,
+        allowNull: false,
+        validate: {
+          min: 0,
+          max: 10000000000,
+        },
       },
       quantity: {
         type: Sequelize.INTEGER,
       },
       imageurl: {
         type: Sequelize.STRING,
+        defaultValue:
+          "https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202146/0017/unscented-wax-pillar-candles-z.jpg",
       },
       createdAt: {
         allowNull: false,

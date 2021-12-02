@@ -1,5 +1,5 @@
 "use strict";
-export const  {Model} = require("sequelize");
+export const  { Model } = require("sequelize");
 
 // These are all the attributes in the User model
 interface ProductAttributes {
@@ -19,6 +19,12 @@ module.exports = (sequelize: any, DataTypes: any) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+     id!: number;
+     name!: string;
+     description!: string;
+     price!: number;
+     password!: string;
+     address!: string;
     static associate(models:any) {
       // define association here
     }
@@ -28,7 +34,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
       name: DataTypes.NUMBER,
       description: DataTypes.STRING,
       size: DataTypes.STRING,
-      price: DataTypes.NUMBER,
+      price: DataTypes.DECIMAL,
       quantity: DataTypes.INTEGER,
       imageurl: DataTypes.STRING,
     },
