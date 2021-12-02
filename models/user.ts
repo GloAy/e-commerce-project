@@ -5,7 +5,8 @@ const { Model } = require("sequelize");
 // These are all the attributes in the User model
 interface UserAttributes {
   id:string;
-  name:string;
+  firstName:string;
+  lastName:string;
   email:string;
   password:string;
   address: string;

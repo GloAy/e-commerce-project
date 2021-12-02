@@ -23,7 +23,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       address: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING(128),
       },
       createdAt: {
         allowNull: false,
