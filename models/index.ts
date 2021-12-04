@@ -1,5 +1,7 @@
 "use strict";
 
+import { builtinModules } from "module";
+
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -20,6 +22,7 @@ if (config.use_env_variable) {
   );
 }
 
+
 fs.readdirSync(__dirname)
   .filter((file: string) => {
     return (
@@ -27,6 +30,7 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach((file: any) => {
+    //inject sequelize and datatypes
     const model = require(path.join(__dirname, file))(
       sequelize,
       Sequelize.DataTypes
@@ -35,11 +39,13 @@ fs.readdirSync(__dirname)
   });
 
 Object.keys(db).forEach((modelName) => {
+  //handling associations 
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
 
+
 db.sequelize = sequelize;
 
-export default db;
+module.exports = db;

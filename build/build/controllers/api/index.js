@@ -18,32 +18,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const express = require("express");
-const path = require("path");
-const app = express();
-const PORT = process.env.PORT || 3000;
-const morgan = require("morgan");
-const { sequelize } = require("../models/index");
-// const cors = require("cors");
-// app.use(
-//   cors({
-//     origin: "http://localhost:8080",
-//   })
-// );
-//middleware =>
-app.use(morgan("dev"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "..", "views")));
-app.use("/api", require("./api"));
-app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const router = require("express").Router();
+const models_1 = __importDefault(require("../../models"));
+//get all the products
+router.get("/products", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log(`Server running on port ${PORT}`);
-        yield sequelize.authenticate();
-        console.log("Database Connected!");
+        console.log('this', models_1.default);
+        const products = yield models_1.default.findAll();
+        res.json(products);
     }
     catch (error) {
-        console.error(error);
+        res.status(500).json({ message: "this is the error" });
     }
-})),
-    (module.exports = app);
+}));
+module.exports = router;

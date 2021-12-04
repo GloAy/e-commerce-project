@@ -35,7 +35,7 @@ module.exports = (sequelize: any, DataTypes: { INTEGER: any; }) => {
           key: "id",
         },
       },
-      orderdetailId: {
+      orderDetailId: {
         type: DataTypes.INTEGER,
         references: {
           model: "Order_detail",

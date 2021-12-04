@@ -9,29 +9,38 @@ interface Order_detailAttributes {
 }
 
 
-module.exports = (sequelize: any, DataTypes: { DECIMAL: any; INTEGER: any; }) => {
-  class Order_detail extends Model {
+module.exports = (sequelize: any, DataTypes: any) => {
+  class Order_detail extends Model<Order_detailAttributes>
+  implements Order_detailAttributes {
+    id!: number;
+    userid!: number;
+    paymentid!: number;
+    total!: number;
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-     id!: number;
-     total!: number;
-     userId!: number;
-     paymentId!: number;
+     
 
     static associate(models: any) {
       // define association here
+      this.belongsTo(models.User,
+        {foreignKey: "userId"});
+        this.hasMany(models.Order_item, {
+          foreignKey: "orderDetailId"
+        })
     }
   }
   Order_detail.init(
     {
       total: DataTypes.DECIMAL,
-      userId: DataTypes.INTEGER,
-      references: {
-        model: "User",
-        key: "id",
+      userId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "User",
+          key: "id",
+        },
       },
       paymentId: DataTypes.INTEGER,
     },

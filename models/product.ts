@@ -12,23 +12,26 @@ interface ProductAttributes {
   imageurl: string;
 }
 
-module.exports = (sequelize: any, DataTypes: { STRING: any; TEXT: any; DECIMAL: any; INTEGER: any; }) => {
-  class Product extends Model {
+module.exports = (sequelize: any, DataTypes: any) => {
+  class Product extends Model<ProductAttributes>
+  implements ProductAttributes {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-     id!: number;
-     name!: string;
-     description!: string;
-     size!: string;
-     price!: number;
-     quantity!: number;
-     imageurl!: string;
-     
+      id!: number;
+      name!: string;
+      description: string; //size is not allownull
+ //size is not allownull
+      size: string; //size is not allownull
+      price!: number;
+      quantity: number; //not allownull
+      imageurl: string; //not allownull
+    
     static associate(models: any) {
       // define association here
+      this.hasMany(models.Order_item, { foreignKey: "productId" });
     }
   }
   Product.init(
@@ -42,7 +45,7 @@ module.exports = (sequelize: any, DataTypes: { STRING: any; TEXT: any; DECIMAL: 
     },
     {
       sequelize,
-      tableName: "users",
+      tableName: "products",
       modelName: "Product",
     }
   );

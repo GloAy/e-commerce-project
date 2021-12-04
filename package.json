@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn controllers/server.ts",
     "build": "tsc",
-    "start": "node build/controllers server.js"
+    "start": "node build/controllers server.js",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate": "npx sequelize-cli db:migrate",
+    "unmigrate": "npx sequelize-cli db:migrate:undo:all"
   },
   "author": "",
   "license": "ISC",
@@ -23,8 +26,11 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
+    "@types/bluebird": "^3.5.36",
+    "@types/validator": "^13.7.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.12.0-alpha.1",

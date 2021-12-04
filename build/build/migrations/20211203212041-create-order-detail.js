@@ -20,37 +20,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 module.exports = {
     up: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.createTable("products", {
+        yield queryInterface.createTable("order_details", {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            name: {
-                type: Sequelize.STRING,
-                allowNull,
-            },
-            description: {
-                type: Sequelize.TEXT,
-            },
-            size: {
-                type: Sequelize.STRING,
-            },
-            price: {
+            total: {
                 type: Sequelize.DECIMAL,
                 allowNull: false,
-                validate: {
-                    min: 0,
-                    max: 10000000000,
-                },
             },
-            quantity: {
+            userId: {
                 type: Sequelize.INTEGER,
+                allowNull: false,
             },
-            imageurl: {
-                type: Sequelize.STRING,
-                defaultValue: "https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202146/0017/unscented-wax-pillar-candles-z.jpg",
+            paymentId: {
+                type: Sequelize.INTEGER,
             },
             createdAt: {
                 allowNull: false,
@@ -63,6 +49,6 @@ module.exports = {
         });
     }),
     down: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.dropTable("products");
+        yield queryInterface.dropTable("Order_details");
     }),
 };
