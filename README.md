@@ -27,14 +27,14 @@
 * Express
 * Stripe Checkout
 * pg
-* Morgan: version: 1.9.1
+* Morgan: version
 * Typescript
 * Axios
-* Postgres: version: 7.9.0
-* React: version: 16.8.6
-* Material UI CSS: version: 2.4.1
-* Semantic-cli: version: 2.0.2
-* Sequelize: version: 5.3.1
+* Postgres: version
+* React: version
+* Material UI 
+* Material Styles
+* Sequelize-cli
 * React Hooks
 * Webpack
 * Babel
