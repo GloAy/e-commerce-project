@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const { Product,  User, Order_item, Order_detail } = require("../../models");
 import {Application, Request, Response} from "express"
-//const stripe = require("stripe")(process.env.STRIPE_KEY);
+const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 
 
 //get all the products
 router.get("/products", async (req: Request, res: Response) => {
+  console.log("this is router")
     try {
-      const products = await Product.findAll();
+      let products = await Product.findAll();
+      console.log('this is product', Product)
       res.json(products);
     } catch (error) {
       res.status(500).json({ message: "this is the error" });
@@ -32,7 +34,6 @@ router.get("/products/:id", async (req: Request, res: Response) => {
 router.post("/products", async (req: Request, res: Response) => {
   const { name, description, size, price, quantity, imageurl } = req.body;
 
-  
   try {
     const products = await Product.create({
       name,
@@ -104,30 +105,29 @@ router.get("/orderdetails/:id", async (req:Request, res: Response) => {
 
 
 
-
-// router.post("/payment", async (req, res) => {
-//   let { amount, id } = req.body;
-//   try {
-//     const payment = await stripe.paymentIntents.create({
-//       amount,
-//       currency: "USD",
-//       description: "CandlebyMelissa4U",
-//       payment_method: id,
-//       confirm: true,
-//     });
-//     console.log("Payment", payment);
-//     res.json({
-//       message: "Payment successful",
-//       success: true,
-//     });
-//   } catch (error) {
-//     console.log("Error", error);
-//     res.json({
-//       message: "Payment failed",
-//       success: false,
-//     });
-//   }
-// });
+router.post("/payment", async (req: Request, res: Response) => {
+  let { amount, id } = req.body;
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount,
+      currency: "USD",
+      description: "CandlebyMelissa4U",
+      payment_method: id,
+      confirm: true,
+    });
+    console.log("Payment", payment);
+    res.json({
+      message: "Payment successful",
+      success: true,
+    });
+  } catch (error) {
+    console.log("Error", error);
+    res.json({
+      message: "Payment failed",
+      success: false,
+    });
+  }
+});
 
 
 

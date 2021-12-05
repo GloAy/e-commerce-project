@@ -7,7 +7,7 @@ module.exports = {
   },
   entry: [
     "regenerator-runtime/runtime.js",
-    path.resolve(__dirname, "./views/index.tsx"),
+    path.resolve(__dirname, "./views/index.js"),
   ],
   mode: "development",
   module: {
@@ -24,11 +24,6 @@ module.exports = {
         },
       },
       {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-      {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
@@ -42,6 +37,5 @@ module.exports = {
     fallback: {
       fs: false,
     },
-    extensions: [".tsx", ".ts", ".js"],
   },
 };

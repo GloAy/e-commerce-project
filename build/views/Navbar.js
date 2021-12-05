@@ -7,9 +7,6 @@ var react_1 = __importDefault(require("react"));
 var styles_1 = require("@material-ui/core/styles");
 var react_router_dom_1 = require("react-router-dom");
 var core_1 = require("@material-ui/core");
-// interface Props {
-//     color: 'red' | 'blue';
-//   }
 var useStyles = (0, styles_1.makeStyles)({
     root: {
         display: "flex",

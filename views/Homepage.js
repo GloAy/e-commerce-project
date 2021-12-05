@@ -1,14 +1,13 @@
 import React from "react";
-// import Footer from "./Footer";
-// import Header from "./Header";
+import Header from "./Header";
 import Banner from "./Banner";
 
 const Homepage = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Banner />
-      {/* <Footer /> */}
+     
     </div>
   );
 };
