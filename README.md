@@ -11,13 +11,13 @@
 
 ## Table of contents
 
-* [Technologies](#technologies)
-* [Features](#features)
-* [Architectural Design](#architectural_design)
-* [Backend Overview](#backend_overview)
-* [Backend Overview] (#backend_overview)
-* [Frontend Overview] (#frontend_overview)
-* [Database Setup] (#databasesetup)
+* [Technologies]
+* [Features]
+* [Architectural Design]
+* [Backend Overview] 
+* [Database Setup] 
+* [Frontend Overview] 
+
 
 ---
 
@@ -56,6 +56,7 @@
 
 * The architectural design that was used is Model View Control. View is where all the react Hook components are saved. Controllers folder have all the apis and Models hold all the model, migrations and seed files. 
 
+---
 ## Backend Overview
 
 
@@ -83,6 +84,8 @@ Starting the App
 In the backend directory, run 'npm run dev'
 In the frontend directory, run 'npm run watch'
 The site should be up and running.
+
+---
 
 ## Frontend Overview 
 
