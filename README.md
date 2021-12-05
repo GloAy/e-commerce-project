@@ -60,7 +60,9 @@ The architectural design that was used is Model View Control. View is where all 
 
 The backend communicates between products, order details, order item, and user  data between a PostgreSQL database and the frontend; the API serves up that information in the JSON format.There are associations between each model. Please see my schema design here: 
 <img src="https://embed.creately.com/fgtRIX9hVeh?token=HHhn5NAPdTDp3Fra&type=svg">
- 
+
+ [You can view my wireframe here:](https://www.figma.com/file/0JbE8y7Uk2hsepeGAudyi0/Untitled?node-id=0%3A1)
+
 There are 4 tables Products, Order-Details, Order-Item and User:
 The products table has rows representing each product, with columns for the id, name, description, size, price, quantity and imageurl
 The order items table has rows that represent the order details id  and product id  (forms one to many relations). The product id and order details id is generated when the user buys a candle.
