@@ -24,13 +24,14 @@ module.exports = (sequelize: any, DataTypes: any) => {
     id!: number;
     firstName!: string;
     lastName!: string;
-    email!:string;
-    password!:string;
-    address!:string
+    email:string;
+    password:string;
+    address:string;
 
     static associate(models: any) {
       // define association here
-    
+      this.hasOne(models.Order_detail, 
+        { foreignKey: "userId" });
     }
   }
   User.init(
@@ -49,3 +50,5 @@ module.exports = (sequelize: any, DataTypes: any) => {
   );
   return User;
 };
+
+console.log("user")

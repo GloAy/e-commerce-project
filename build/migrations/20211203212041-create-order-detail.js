@@ -17,12 +17,12 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            total: {
-                type: Sequelize.DECIMAL,
-                allowNull: false,
-            },
             userId: {
                 type: Sequelize.INTEGER,
+                allowNull: false,
+            },
+            total: {
+                type: Sequelize.DECIMAL,
                 allowNull: false,
             },
             paymentId: {
@@ -39,6 +39,6 @@ module.exports = {
         });
     }),
     down: (queryInterface, Sequelize) => __awaiter(void 0, void 0, void 0, function* () {
-        yield queryInterface.dropTable("Order_details");
+        yield queryInterface.dropTable("order_details");
     }),
 };

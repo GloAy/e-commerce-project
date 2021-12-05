@@ -1,6 +1,6 @@
 "use strict";
 module.exports = {
-  up: async (queryInterface: any, Sequelize: any) => {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable("products", {
       id: {
         allowNull: false,
@@ -10,6 +10,7 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
@@ -29,7 +30,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       imageurl: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         defaultValue:
           "https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202146/0017/unscented-wax-pillar-candles-z.jpg",
       },
@@ -43,7 +44,7 @@ module.exports = {
       },
     });
   },
-  down: async (queryInterface: any, Sequelize: any) => {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable("products");
   },
 };

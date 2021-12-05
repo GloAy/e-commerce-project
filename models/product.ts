@@ -22,12 +22,11 @@ module.exports = (sequelize: any, DataTypes: any) => {
      */
       id!: number;
       name!: string;
-      description: string; //size is not allownull
- //size is not allownull
-      size: string; //size is not allownull
+      description: string; 
+      size: string; 
       price!: number;
-      quantity: number; //not allownull
-      imageurl: string; //not allownull
+      quantity: number; 
+      imageurl: string; 
     
     static associate(models: any) {
       // define association here

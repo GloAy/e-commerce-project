@@ -17,7 +17,7 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER,
             },
-            quantity: {
+            orderDetailId: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
@@ -25,7 +25,7 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },
-            orderDetailId: {
+            quantity: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
             },

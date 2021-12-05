@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     class User extends exports.Model {
         static associate(models) {
             // define association here
+            this.hasOne(models.Order_detail, { foreignKey: "userId" });
         }
     }
     User.init({
@@ -21,3 +22,4 @@ module.exports = (sequelize, DataTypes) => {
     });
     return User;
 };
+console.log("user");

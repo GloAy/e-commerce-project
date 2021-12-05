@@ -14,7 +14,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
   implements Order_detailAttributes {
     id!: number;
     userid!: number;
-    paymentid!: number;
+    paymentid: number;
     total!: number;
     /**
      * Helper method for defining associations.

@@ -23,6 +23,8 @@ module.exports = (sequelize: any, DataTypes: { INTEGER: any; }) => {
 
     static associate(models: any) {
       // define association here
+      this.belongsTo(models.Product, { foreignKey: "productId" });
+      this.belongsTo(models.Order_detail, { foreignKey: "orderDetailId" });
     }
   }
   Order_item.init(

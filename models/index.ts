@@ -1,7 +1,5 @@
 "use strict";
-
 import { builtinModules } from "module";
-
 const fs = require("fs");
 const path = require("path");
 const Sequelize = require("sequelize");
@@ -48,4 +46,7 @@ Object.keys(db).forEach((modelName) => {
 
 db.sequelize = sequelize;
 
+console.log("index")
 module.exports = db;
+
+

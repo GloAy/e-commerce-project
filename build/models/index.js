@@ -19,13 +19,16 @@ fs.readdirSync(__dirname)
     return (file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".ts");
 })
     .forEach((file) => {
+    //inject sequelize and datatypes
     const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
     db[model.name] = model;
 });
 Object.keys(db).forEach((modelName) => {
+    //handling associations 
     if (db[modelName].associate) {
         db[modelName].associate(db);
     }
 });
 db.sequelize = sequelize;
-exports.default = db;
+console.log("index");
+module.exports = db;

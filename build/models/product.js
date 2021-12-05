@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         imageurl: DataTypes.TEXT,
     }, {
         sequelize,
-        tableName: "users",
+        tableName: "products",
         modelName: "Product",
     });
     return Product;

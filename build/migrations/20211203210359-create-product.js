@@ -19,6 +19,7 @@ module.exports = {
             },
             name: {
                 type: Sequelize.STRING,
+                allowNull: false,
             },
             description: {
                 type: Sequelize.TEXT,
@@ -38,7 +39,7 @@ module.exports = {
                 type: Sequelize.INTEGER,
             },
             imageurl: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT,
                 defaultValue: "https://assets.pbimgs.com/pbimgs/rk/images/dp/wcm/202146/0017/unscented-wax-pillar-candles-z.jpg",
             },
             createdAt: {

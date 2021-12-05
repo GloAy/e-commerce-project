@@ -4,12 +4,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const morgan = require("morgan");
 const { sequelize } = require("../models/index");
-// const cors = require("cors");
-// app.use(
-//   cors({
-//     origin: "http://localhost:8080",
-//   })
-// );
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:8080",
+  })
+);
 
 //middleware 
 app.use(morgan("dev"));
@@ -19,8 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "..", "views")));
 app.use("/api", require("./api"));
 
-
-//model.sync it looks for a table that correspondence to that model and if it doesnt find it, it will add it 
 
 
 
