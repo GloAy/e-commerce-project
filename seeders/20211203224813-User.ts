@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface: any, Sequelize: any) => {
     await queryInterface.bulkInsert("users", [
       {
         id: 1,
@@ -26,7 +26,7 @@ module.exports = {
     ]);
   },
 
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface: any, Sequelize: any) => {
     /**
      * Add commands to revert seed here.
      *
