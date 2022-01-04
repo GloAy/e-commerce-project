@@ -21,6 +21,7 @@ const App = () => {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout/:total" element={<Checkout />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

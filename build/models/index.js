@@ -24,11 +24,9 @@ fs.readdirSync(__dirname)
     db[model.name] = model;
 });
 Object.keys(db).forEach((modelName) => {
-    //handling associations 
     if (db[modelName].associate) {
         db[modelName].associate(db);
     }
 });
 db.sequelize = sequelize;
-console.log("index");
 module.exports = db;

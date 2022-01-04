@@ -11,6 +11,7 @@ const PUBLIC_KEY =
 const stripeSetUp = loadStripe(PUBLIC_KEY);
 
 const Checkout = () => {
+  //
   const params = useParams();
   const { total } = params;
   return (

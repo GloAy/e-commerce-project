@@ -14,6 +14,7 @@ const { Product, User, Order_item, Order_detail } = require("../../models");
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 //get all the products
 router.get("/products", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("this is router");
     try {
         let products = yield Product.findAll();
         console.log('this is product', Product);
@@ -51,6 +52,7 @@ router.post("/products", (req, res) => __awaiter(void 0, void 0, void 0, functio
         res.status(500).json({ message: "product not posting" });
     }
 }));
+//checking out 
 router.post("/orderitems", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { quantity, productId, orderDetailId } = req.body;
@@ -80,20 +82,15 @@ router.post("/orderdetails", (req, res) => __awaiter(void 0, void 0, void 0, fun
         res.status(500).json({ message: "did not post order details" });
     }
 }));
-// 
 //get all the order details
 router.get("/orderdetails/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        //gettig the id orderdetails => front end provides the id
         const id = req.params.id;
-        //sending the request to the backend here
-        // const orderDetails = await Order_detail.findByPk(id);
-        //go to order item table and get all the data  where order detail id equals is
         const orderItems = yield Order_item.findAll({
             where: { orderDetailId: id },
             include: [Product],
         });
-        console.log("this is", orderItems);
+        //console.log("this is", orderItems);
         res.json(orderItems);
     }
     catch (error) {

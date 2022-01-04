@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product";
+import axios from "axios";
 
 import {
   Card,
@@ -15,14 +16,13 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        //console.log(data);
-        setProducts(json);
-      });
+    async function fetchMyApi() {
+      let allProduct = await axios.get(`http://localhost:3000/api/products`);
+      //console.log("this", singleProduct.data);
+      allProduct = allProduct.data;
+      setProducts(allProduct);
+    }
+    fetchMyApi();
   }, []);
 
   return (

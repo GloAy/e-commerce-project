@@ -28,7 +28,7 @@ app.listen(PORT, () => __awaiter(void 0, void 0, void 0, function* () {
     console.log(`Server running on port ${PORT}`);
     try {
         yield sequelize.authenticate();
-        console.log("Database Connected!");
+        console.log("Database Connected!"); //db connection
     }
     catch (err) {
         console.error('Unable to connect to the database:', err);

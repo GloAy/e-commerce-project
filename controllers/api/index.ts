@@ -17,7 +17,6 @@ router.get("/products", async (req: Request, res: Response) => {
     }
   });
 
-
 //get single product
 router.get("/products/:id", async (req: Request, res: Response) => {
     try {
@@ -27,6 +26,7 @@ router.get("/products/:id", async (req: Request, res: Response) => {
       res.status(500).json({ Error: "this is the error" });
     }
   });
+
 
 
 
@@ -50,6 +50,7 @@ router.post("/products", async (req: Request, res: Response) => {
 });
 
 
+//checking out 
 router.post("/orderitems", async (req: Request, res: Response) => {
   try {
     const { quantity, productId, orderDetailId } = req.body;
@@ -82,20 +83,18 @@ router.post("/orderdetails", async (req: Request, res: Response) => {
 });
 
 
-// 
+ 
 //get all the order details
 router.get("/orderdetails/:id", async (req:Request, res: Response) => {
   try {
-    //gettig the id orderdetails => front end provides the id
+
     const id = req.params.id;
-    //sending the request to the backend here
-    // const orderDetails = await Order_detail.findByPk(id);
-    //go to order item table and get all the data  where order detail id equals is
+
     const orderItems = await Order_item.findAll({
       where: { orderDetailId: id },
       include: [Product],
     });
-    console.log("this is", orderItems);
+    //console.log("this is", orderItems);
     res.json(orderItems);
   } catch (error) {
     res.status(500).json({ message: "there is an error" });

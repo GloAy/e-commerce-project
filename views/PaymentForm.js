@@ -53,7 +53,6 @@ const PaymentForm = ({ total }) => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-
     if (!error) {
       try {
         console.log("this is total", total);

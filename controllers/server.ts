@@ -11,14 +11,16 @@ app.use(
   })
 );
 
+
 //middleware 
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, "..", "views")));
-app.use("/api", require("./api"));
+app.use(express.static(path.join(__dirname, "..", "views"))); 
 
+
+app.use("/api", require("./api")); 
 
 
 
@@ -26,7 +28,7 @@ app.listen(PORT, async () => {
     console.log(`Server running on port ${PORT}`);
     try {
       await sequelize.authenticate()
-      console.log("Database Connected!");
+      console.log("Database Connected!"); //db connection
     } catch (err) {
       console.error('Unable to connect to the database:', err)
     }

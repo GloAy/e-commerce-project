@@ -43,6 +43,7 @@ const Cart = () => {
   const [total, setTotal] = useState(0);
 
   const classes = useStyles();
+  //hardcoded the user
   let id = 1;
 
   useEffect(() => {
