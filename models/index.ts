@@ -9,18 +9,43 @@ const config = require(__dirname + "/../config/config.js")[env];
 const db: any = {};
 
 
-let sequelize: any;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(
-    config.database,
-    config.username,
-    config.password,
-    config
-  );
-}
+// let sequelize: any;
+// if (config.use_env_variable) {
+//   sequelize = new Sequelize(process.env[config.use_env_variable], config);
+// } else {
+//   sequelize = new Sequelize(
+//     config.database,
+//     config.username,
+//     config.password,
+//     config
+//   );
+// }
 
+let sequelize: any;
+if (process.env.NODE_ENV === "production") {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: "postgres",
+    protocol: "postgres",
+    dialectOptions: {
+      ssl: {
+        sslmode: "require",
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  });
+} else {
+  sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, {
+    host: process.env.DB_HOST,
+    pool: {
+      max: 100,
+      min: 0,
+      idle: 200000,
+      // @note https://github.com/sequelize/sequelize/issues/8133#issuecomment-359993057
+      acquire: 1000000,
+    },
+  });
+}
 
 fs.readdirSync(__dirname)
   .filter((file: string) => {
