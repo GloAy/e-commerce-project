@@ -2,7 +2,7 @@
 
 <b>
 
-[Here is the link to deployed app!](https://stupefied-wozniak-d07eeb.netlify.app/)
+[Here is the link to deployed app!](https://thousandcandles.herokuapp.com//)
 </b>
 
 </div>
