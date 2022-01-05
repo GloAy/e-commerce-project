@@ -1,9 +1,5 @@
 <div align = "center">
 
-<b>
-
-[Here is the link to deployed app!](https://thousandcandles.herokuapp.com//)
-</b>
 
 </div>
 
