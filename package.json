@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn controllers/server.ts",
     "build": "tsc",
-    "start": "node build/controllers server.ts",
+    "start": "node controllers/server.ts",
     "seed": "npx sequelize-cli db:seed:all",
     "migrate": "npx sequelize-cli db:migrate",
     "unmigrate": "npx sequelize-cli db:migrate:undo:all",
