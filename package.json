@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev --respawn controllers/server.ts",
+    "start": "react-scripts start",
+    "dev": "ts-node-dev --respawn controllers/server.ts",
     "build": "tsc",
     "seed": "npx sequelize-cli db:seed:all",
     "migrate": "npx sequelize-cli db:migrate",
