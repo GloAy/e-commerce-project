@@ -1,1 +1,1 @@
-web: node controllers/server.js
+web: node controllers/server.ts
