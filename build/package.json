@@ -1,0 +1,62 @@
+{
+  "name": "candlesbymelissa4u",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": "12.19.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn controllers/server.ts",
+    "build": "tsc",
+    "start": "node build/controllers server.js",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate": "npx sequelize-cli db:migrate",
+    "unmigrate": "npx sequelize-cli db:migrate:undo:all",
+    "watch": "webpack-dev-server --progress",
+    "deploy": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.11",
+    "babel-loader": "^8.2.3",
+    "nodemon": "^2.0.15",
+    "sequelize-cli": "^6.3.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "webpack-cli": "^4.9.1",
+    "stripe": "^8.191.0",
+    "react-stripe-checkout": "^2.6.3",
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.21.2"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/styles": "^4.11.4",
+    "@types/bluebird": "^3.5.36",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/validator": "^13.7.0",
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.1",
+    "pg-hstore": "^2.3.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-query": "^3.34.0",
+    "react-router-dom": "^6.0.2",
+    "sequelize": "^6.12.0-alpha.1",
+    "ts-node-dev": "^1.1.8",
+    "webpack-dev-server": "^4.6.0"
+  }
+}
