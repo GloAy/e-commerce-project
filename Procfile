@@ -1,1 +1,1 @@
-web: node controllers/server.ts
+web: node controllers/server.ts:q
